@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +15,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: #1a1a2e;
             overflow-x: hidden;
@@ -48,14 +49,14 @@
 
         .logo {
             font-size: 1.3rem;
-            font-weight: 900; /* Inter 900 is quite bold and friendly */
-            color: #FFFFFF; /* Pure white for the text */
-            background: none; /* Remove gradient background-clip */
+            font-weight: 900;
+            color: #FFFFFF;
+            background: none;
             -webkit-background-clip: unset;
             -webkit-text-fill-color: unset;
             display: flex;
             align-items: center;
-            font-family: 'Inter', sans-serif; /* Explicitly set font for logo */
+            font-family: 'Inter', sans-serif;
         }
 
         .logo img {
@@ -254,6 +255,23 @@
             box-shadow: 0 15px 35px rgba(68, 49, 218, 0.4);
         }
 
+        /* Section General Styles */
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            font-weight: 800;
+            color: #4431da;
+        }
+
+        .section-separator {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, #ddd 0%, #4431da 50%, #ddd 100%);
+            margin: 60px auto;
+            max-width: 80%;
+        }
+
         /* Stats Section */
         .stats {
             padding: 80px 0;
@@ -296,20 +314,12 @@
             position: relative;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 4rem;
-            font-weight: 800;
-            color: #4431da;
-        }
-
         .problem-solution-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 6rem;
             align-items: center;
-            margin-bottom: 4rem; /* Reduced margin to be closer to the separator */
+            margin-bottom: 4rem;
         }
 
         .problem-solution-content h3 {
@@ -352,12 +362,12 @@
         .problem-solution-image img {
             width: 100%;
             max-width: 300px;
-            max-height: 400px; /* Increased max-height for images */
+            max-height: 400px;
             height: auto;
             object-fit: contain;
-            margin-bottom: 0; /* Removed margin to allow overlap with gradient */
-            box-shadow: none; /* Removed shadow from the image itself */
-            border-radius: 0; /* Removed border-radius from the image itself */
+            margin-bottom: 0;
+            box-shadow: none;
+            border-radius: 0;
         }
 
         .problem-solution-image .image-description {
@@ -368,7 +378,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
             text-align: center;
             z-index: 1;
-            padding: 1rem; /* Added padding for better readability */
+            padding: 1rem;
         }
 
         .problem-solution-image::before {
@@ -388,24 +398,15 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            height: 25%; /* Height of the gradient */
-            background: linear-gradient(to bottom, rgba(68, 49, 218, 0) 0%, rgba(68, 49, 218, 1) 100%); /* Gradient from transparent to main color */
-            opacity: 0.7; /* Adjust opacity as needed, 0.7 to ensure visibility without being too strong */
-            pointer-events: none; /* Allows clicks to pass through */
+            height: 25%;
+            background: linear-gradient(to bottom, rgba(68, 49, 218, 0) 0%, rgba(68, 49, 218, 1) 100%);
+            opacity: 0.7;
+            pointer-events: none;
         }
 
         @keyframes shimmer {
             0%, 100% { transform: rotate(0deg); }
             50% { transform: rotate(180deg); }
-        }
-
-        /* Separator */
-        .section-separator {
-            border: 0;
-            height: 2px;
-            background: linear-gradient(to right, #ddd 0%, #4431da 50%, #ddd 100%);
-            margin: 60px auto; /* Adjust margin to control spacing */
-            max-width: 80%; /* Width of the separator line */
         }
 
         /* How It Works */
@@ -499,46 +500,45 @@
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.1); /* Added transparent background */
-            backdrop-filter: blur(10px); /* Keep backdrop filter for a subtle effect */
-            padding: 1.5rem; /* Adjusted padding */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
             border-radius: 20px;
             text-align: center;
             transition: all 0.3s ease;
-            border: none; /* No border for the card */
+            border: none;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: none; /* No shadow for the card itself */
+            box-shadow: none;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            /* Keep background and shadow only on the icon or a new wrapper if desired */
-            box-shadow: none; /* Removed shadow from the card on hover */
+            box-shadow: none;
         }
 
         .feature-icon {
-            background: none; /* No background for the icon container */
-            padding: 0; /* No padding, image directly controls size within container */
-            border-radius: 20px; /* Rounded corners for the icon container */
+            background: none;
+            padding: 0;
+            border-radius: 20px;
             margin-bottom: 1rem;
-            border: none; /* No border for the icon container */
-            width: 180px; /* Increased size for the icon container */
-            height: 180px; /* Increased size for the icon container */
+            border: none;
+            width: 180px;
+            height: 180px;
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Added shadow for the icon container */
-            overflow: hidden; /* Ensure image adheres to rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
 
         .feature-icon img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: cover; /* Crop to fill the container and respect border-radius */
-            border-radius: 20px; /* Apply border-radius to the image itself */
+            object-fit: cover;
+            border-radius: 20px;
         }
 
         .feature-card h3 {
@@ -600,10 +600,10 @@
 
         .testimonial-image {
             background: #4431da;
-            padding: 5px; /* Minimal padding for image to be larger within */
+            padding: 5px;
             border-radius: 50%;
-            width: 180px; /* Increased container size for larger image */
-            height: 180px; /* Increased container size for larger image */
+            width: 180px;
+            height: 180px;
             margin: 0 auto 2rem;
             display: flex;
             align-items: center;
@@ -684,13 +684,13 @@
             justify-content: center;
             margin: 0 auto 1.5rem;
             box-shadow: 0 15px 40px rgba(68, 49, 218, 0.4);
-            overflow: hidden; /* Ensure image adheres to border-radius */
+            overflow: hidden;
         }
         .trust-icon img {
             max-width: 70%;
             max-height: 70%;
             object-fit: contain;
-            border-radius: 50%; /* Make image itself circular */
+            border-radius: 50%;
         }
 
         .trust-item h3 {
@@ -702,73 +702,6 @@
         .trust-item p {
             opacity: 0.9;
             line-height: 1.6;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
-        }
-
-        .faq .section-title {
-            color: #4431da;
-        }
-
-        .faq-item {
-            background: white;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 30px rgba(68, 49, 218, 0.08);
-            overflow: hidden;
-            border: 1px solid #e1e8ed;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(68, 49, 218, 0.12);
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #1a1a2e;
-            cursor: pointer;
-            background: #ffffff;
-            transition: background 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: #f8faff;
-        }
-
-        .faq-question .icon {
-            font-size: 1.5rem;
-            color: #4431da;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-answer {
-            padding: 0 2rem 1.5rem;
-            font-size: 1rem;
-            color: #5a5a5a;
-            line-height: 1.7;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px; /* Adjust based on content */
-            padding-top: 1rem;
-        }
-
-        .faq-item.active .faq-question .icon {
-            transform: rotate(180deg);
         }
 
         /* About Us Section */
@@ -873,7 +806,7 @@
 
         .plan-card ul li::before {
             content: '✓';
-            color: #a7f3d0; /* Light green checkmark */
+            color: #a7f3d0;
             font-weight: 900;
             position: absolute;
             left: 0;
@@ -881,13 +814,80 @@
 
         .plan-card ul li.negative::before {
             content: '✗';
-            color: #fca5a5; /* Light red cross */
+            color: #fca5a5;
         }
 
         .plan-card .btn {
             width: 100%;
             padding: 15px 0;
             font-size: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+        }
+
+        .faq .section-title {
+            color: #4431da;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(68, 49, 218, 0.08);
+            overflow: hidden;
+            border: 1px solid #e1e8ed;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(68, 49, 218, 0.12);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            cursor: pointer;
+            background: #ffffff;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f8faff;
+        }
+
+        .faq-question .icon {
+            font-size: 1.5rem;
+            color: #4431da;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 2rem 1.5rem;
+            font-size: 1rem;
+            color: #5a5a5a;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-top: 1rem;
+        }
+
+        .faq-item.active .faq-question .icon {
+            transform: rotate(180deg);
         }
 
         /* Footer */
@@ -966,7 +966,7 @@
             position: relative;
             box-shadow: 0 30px 80px rgba(68, 49, 218, 0.3);
             animation: modalSlideIn 0.3s ease;
-            max-height: 90vh; 
+            max-height: 90vh;
             overflow-y: auto;
         }
 
@@ -1066,12 +1066,12 @@
                 font-size: 2.5rem;
             }
 
-            .problem-solution-content p { /* Afecta los párrafos de "El problema real" y "Nuestra solución ganadora" */
-            font-size: 1rem; /* <-- Añade esta regla con el tamaño deseado (ej. 1rem o 0.9rem) */
+            .problem-solution-content p {
+                font-size: 1rem;
             }
-    
+
             .logo {
-            font-size: 1.2rem; /* <-- Añade o cambia este valor para móvil */
+                font-size: 1.2rem;
             }
 
             .hero p {
@@ -1133,7 +1133,7 @@
             .btn {
                 width: 100%;
                 max-width: 300px;
-                padding: 12px 25px; /* <-- Ajusta este valor (por ejemplo, de 18px 35px a 12px 25px) */
+                padding: 12px 25px;
                 font-size: 1rem;
             }
 
@@ -1178,23 +1178,23 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-nosotros">Nosotros</a></li>
                 <li><a href="#como-funciona">Proceso</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#proyectos">Beneficios</a></li>
                 <li><a href="#testimonios">Testimonios</a></li>
-                <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
-                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
                 <li><a href="#planes">Planes</a></li>
+                <li><a href="#preguntas-frecuentes">FAQ</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             <div class="mobile-menu" id="mobileMenu">
                 <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+                <a href="#sobre-nosotros" onclick="closeMobileMenu()">Nosotros</a>
                 <a href="#como-funciona" onclick="closeMobileMenu()">Proceso</a>
-                <a href="#proyectos" onclick="closeMobileMenu()">Proyectos</a>
+                <a href="#proyectos" onclick="closeMobileMenu()">Beneficios</a>
                 <a href="#testimonios" onclick="closeMobileMenu()">Testimonios</a>
-                <a href="#preguntas-frecuentes" onclick="closeMobileMenu()">Preguntas Frecuentes</a>
-                <a href="#sobre-nosotros" onclick="closeMobileMenu()">Sobre Nosotros</a>
                 <a href="#planes" onclick="closeMobileMenu()">Planes</a>
+                <a href="#preguntas-frecuentes" onclick="closeMobileMenu()">FAQ</a>
                 <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
             </div>
         </nav>
@@ -1204,7 +1204,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1><span class="hero-highlight white-text">Transforma</span> tu futuro profesional <span class="hero-highlight">HOY</span></h1>
-                <p>🚀 De cero experiencia a primer empleo en 90 días. Proyectos reales, pagos inmediatos, portafolio ganador.</p>
+                <p>🚀 De cero experiencia a tu primer empleo en 90 días. Proyectos reales, pagos inmediatos, portafolio ganador.</p>
                 <div class="cta-buttons">
                     <a href="#" class="btn btn-primary" onclick="openModal('modalJoven')">Empezar Ahora - GRATIS</a>
                     <a href="#" class="btn btn-secondary" onclick="openModal('modalEmpresa')">Contratar Talento</a>
@@ -1238,13 +1238,11 @@
 
     <section class="problem-solution">
         <div class="container">
-            <h2 class="section-title">El Círculo Vicioso que Romperemos Juntos</h2>
+            <h2 class="section-title">Rompiendo el Círculo de la Falta de Experiencia</h2>
             <div class="problem-solution-grid">
                 <div class="problem-solution-content problem-content">
-                    <h3>❌ El Problema Real</h3>
-                    <p><strong>No tienes experiencia porque nadie te da trabajo.</strong></p>
-                    <p>Miles de jóvenes talentosos quedan fuera por este círculo imposible de romper.</p>
-                    <p>Las empresas piden 2-3 años de experiencia para puestos "junior" - ¡Es una locura!</p>
+                    <h3>❌ El Problema</h3>
+                    <p><strong>Sin experiencia, es difícil conseguir trabajo.</strong> Miles de jóvenes talentosos son rechazados por esta barrera. Empresas a menudo piden 2-3 años de experiencia para roles "junior".</p>
                 </div>
                 <div class="problem-solution-image">
                     <img src="problem-vicious-cycle.png" alt="Círculo Vicioso">
@@ -1259,21 +1257,29 @@
                 <div class="problem-solution-image">
                     <img src="solution-ladder.png" alt="Tu Nueva Escalera al Éxito Profesional">
                     <div class="image-description">
-                        <strong>Tu nueva escalera al éxito profesional</strong><br>
+                        <strong>Tu escalera al éxito profesional</strong><br>
                         Proyectos → Experiencia → Empleo
                     </div>
                 </div>
                 <div class="problem-solution-content solution-content">
-                    <h3>✅ Nuestra Solución Ganadora</h3>
-                    <p><strong>Proyectos reales que te dan experiencia MIENTRAS ganas dinero.</strong></p>
-                    <p>Trabajas en desafíos de empresas reales, construyes tu portafolio y demuestras tu valor.</p>
-                    <p>Cuando llega la entrevista, ya no eres "sin experiencia" - eres un profesional con resultados probados.</p>
+                    <h3>✅ Nuestra Solución</h3>
+                    <p><strong>Gana experiencia y dinero con proyectos reales.</strong> Trabaja en desafíos empresariales, crea tu portafolio y demuestra tu valor. Llega a tu entrevista como un profesional con resultados probados.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <hr class="section-separator">
+
+    <section class="about-us" id="sobre-nosotros">
+        <div class="container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="about-us-content">
+                <p>Tu Primera Chamba nació en 2025 de la frustración de estudiantes de Gestión de Marketing del Instituto Zegel Ipae. Nuestro equipo – Julissa Carcamo, Eleazar Cordero, Nicole Flores, Jazmin Monzón y Solange Saldaña – identificó la brecha entre la academia y el mercado laboral peruano: la falta de experiencia para jóvenes talentosos. Decidimos romper este ciclo creando un modelo donde la experiencia se construye en proyectos reales y remunerados, permitiendo a los jóvenes crear un portafolio sólido y a las empresas encontrar el talento que necesitan.</p>
+                <p>Nuestra misión es empoderar a cada joven para que transforme su futuro profesional hoy, superando barreras y abriendo puertas a un futuro prometedor en Perú.</p>
+            </div>
+        </div>
+    </section>
 
     <section class="how-it-works" id="como-funciona">
         <div class="container">
@@ -1282,22 +1288,22 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Registro y Evaluación</h3>
-                    <p>Te registras gratis y evaluamos tus habilidades básicas. No importa tu nivel inicial - te ayudamos a crecer.</p>
+                    <p>Regístrate gratis. Evaluamos tus habilidades básicas para ayudarte a crecer.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Asignación de Proyecto</h3>
-                    <p>Te conectamos con un proyecto real de una empresa. Recibes capacitación específica y mentoring personalizado.</p>
+                    <p>Te conectamos con un proyecto real. Recibe capacitación y mentoring personalizado.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Desarrollo y Pago</h3>
-                    <p>Trabajas en el proyecto mientras aprendes. Recibes pagos semanales por tu trabajo - ¡empiezas a ganar desde el día 1!</p>
+                    <p>Trabaja en el proyecto, aprende y recibe pagos semanales desde el día 1.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
                     <h3>Empleo Permanente</h3>
-                    <p>Con experiencia comprobada y un portafolio sólido, te conectamos con empleadores que buscan exactamente tu perfil.</p>
+                    <p>Con experiencia y portafolio, te conectamos con empleadores que buscan tu perfil.</p>
                 </div>
             </div>
         </div>
@@ -1305,37 +1311,65 @@
 
     <section class="features" id="proyectos">
         <div class="container">
-            <h2 class="section-title">Lo Que Te Hace Diferente</h2>
+            <h2 class="section-title">Lo Que Nos Hace Únicos</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon"><img src="feature-icon-projects.png" alt="Proyectos Reales"></div>
                     <h3>Proyectos Reales</h3>
-                    <p>No simulaciones. Trabajas en desafíos reales de empresas reales con impacto real en tu carrera.</p>
+                    <p>Trabaja en desafíos empresariales reales con impacto en tu carrera.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><img src="feature-icon-money.png" alt="Gana Mientras Aprendes"></div>
                     <h3>Gana Mientras Aprendes</h3>
-                    <p>Pagos semanales desde tu primer proyecto. Convierte tu aprendizaje en una fuente de ingresos inmediata.</p>
+                    <p>Pagos semanales desde tu primer proyecto. Convierte tu aprendizaje en ingresos.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><img src="feature-icon-mentoring.png" alt="Mentoring Personalizado"></div>
                     <h3>Mentoring Personalizado</h3>
-                    <p>Un mentor experto te guía en cada proyecto. Feedback constante y crecimiento acelerado garantizado.</p>
+                    <p>Un mentor experto te guía en cada proyecto, asegurando crecimiento acelerado.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><img src="feature-icon-portfolio.png" alt="Portafolio Ganador"></div>
                     <h3>Portafolio Ganador</h3>
-                    <p>Cada proyecto suma a tu portafolio profesional. Casos de éxito reales que impresionan a empleadores.</p>
+                    <p>Cada proyecto suma a tu portafolio, impresionando a empleadores.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><img src="feature-icon-connection.png" alt="Conexión Directa"></div>
                     <h3>Conexión Directa</h3>
-                    <p>Te conectamos directamente con empresas que necesitan tu perfil. No más postulaciones sin respuesta.</p>
+                    <p>Te conectamos con empresas que necesitan tu perfil, sin postulaciones sin respuesta.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><img src="feature-icon-growth.png" alt="Crecimiento Acelerado"></div>
                     <h3>Crecimiento Acelerado</h3>
-                    <p>Programa intensivo de 90 días que te transforma de principiante a profesional empleable.</p>
+                    <p>Programa intensivo de 90 días para transformarte en un profesional empleable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="container">
+            <h2 class="section-title">Nuestra Garantía de Resultados</h2>
+            <div class="trust-features">
+                <div class="trust-item">
+                    <div class="trust-icon"><img src="trust-icon-success-web.png" alt="Ícono de Éxito"></div>
+                    <h3>85% de Éxito</h3>
+                    <p>8 de cada 10 participantes consiguen empleo en los primeros 3 meses.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><img src="trust-icon-payment-web.png" alt="Ícono de Pago Garantizado"></div>
+                    <h3>Pago Garantizado</h3>
+                    <p>Si no ganas dinero en tu primer mes, te devolvemos el 100% de tu inversión.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><img src="trust-icon-support-web.png" alt="Ícono de Soporte"></div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Equipo de mentores disponible diariamente para resolver tus dudas.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><img src="trust-icon-connections-web.png" alt="Ícono de Conexiones"></div>
+                    <h3>Conexiones Reales</h3>
+                    <p>Red de más de 200 empresas aliadas buscando activamente nuevo talento.</p>
                 </div>
             </div>
         </div>
@@ -1367,145 +1401,9 @@
         </div>
     </section>
 
-    <section class="trust">
-        <div class="container">
-            <h2 class="section-title">Garantía Total de Resultados</h2>
-            <div class="trust-features">
-                <div class="trust-item">
-                    <div class="trust-icon"><img src="trust-icon-success-web.png" alt="Ícono de Éxito"></div>
-                    <h3>85% de Éxito</h3>
-                    <p>8 de cada 10 participantes consiguen empleo en los primeros 3 meses.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon"><img src="trust-icon-payment-web.png" alt="Ícono de Pago Garantizado"></div>
-                    <h3>Pago Garantizado</h3>
-                    <p>Si no ganas dinero en tu primer mes, te devolvemos el 100% de tu inversión.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon"><img src="trust-icon-support-web.png" alt="Ícono de Soporte"></div>
-                    <h3>Soporte 24/7</h3>
-                    <p>Equipo de mentores disponible todos los días para resolver tus dudas.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon"><img src="trust-icon-connections-web.png" alt="Ícono de Conexiones"></div>
-                    <h3>Conexiones Reales</h3>
-                    <p>Red de más de 200 empresas aliadas buscando activamente nuevo talento.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq" id="preguntas-frecuentes">
-        <div class="container">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Qué es "Tu Primera Chamba" y cómo funciona?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Tu Primera Chamba es una plataforma que conecta a jóvenes sin experiencia laboral con proyectos reales de empresas. A través de estos proyectos, ganas experiencia, construyes un portafolio y recibes pagos semanales. Una vez que demuestras tu valía, te conectamos con oportunidades de empleo permanente.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Necesito tener experiencia previa para unirme?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>¡No! Nuestro programa está diseñado específicamente para jóvenes con poca o ninguna experiencia. Evaluamos tus habilidades básicas al inicio y te proporcionamos la capacitación y el mentoring necesario para cada proyecto.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Cuánto tiempo dura el programa hasta conseguir un empleo?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nuestro programa intensivo está diseñado para que consigas tu primer empleo permanente en un promedio de 90 días, gracias a la experiencia real que adquieres y el portafolio que construyes.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Recibo pago por los proyectos?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sí, absolutamente. Te pagamos semanalmente por tu trabajo en los proyectos. Es una de nuestras diferencias clave: ganas dinero mientras aprendes y construyes tu experiencia.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Qué tipo de empresas participan?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Trabajamos con una red diversa de empresas, desde startups innovadoras hasta compañías establecidas en diversos sectores como tecnología, marketing digital, diseño, ventas y administración.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Garantía de empleo o solo contacto?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nos esforzamos por ir más allá del simple contacto. Nuestro objetivo es que obtengas un empleo real. A través de nuestra metodología, que incluye proyectos remunerados, desarrollo de portafolio y conexiones directas con empresas, te preparamos para ser un candidato preferente. Los planes premium, además, incluyen una garantía de devolución si, siguiendo nuestro proceso, no consigues un empleo en el tiempo estipulado.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Cómo es el pago?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Los pagos por los proyectos se realizan de forma semanal, directamente a tu cuenta bancaria o a través de los medios de pago digitales que acordemos. Nos aseguramos de que recibas una compensación justa por tu trabajo y esfuerzo.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Cómo funciona la mentoría?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nuestra mentoría es un pilar fundamental. Te asignamos mentores expertos en tu área de interés que te guiarán en cada proyecto, te darán feedback constructivo y compartirán su experiencia. Los planes premium ofrecen sesiones de mentoría más personalizadas y acceso a expertos de la industria.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Certificaciones serán válidas?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sí, nuestras certificaciones son reconocidas por las empresas aliadas y validan las habilidades y la experiencia práctica que adquieres al completar exitosamente los proyectos. Son un respaldo tangible de tu capacidad profesional.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        ¿Actualización constante?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutamente. El mercado laboral está en constante evolución, y nosotros también. Nuestros proyectos, capacitaciones y recursos se actualizan continuamente para asegurar que las habilidades que adquieres estén siempre alineadas con las últimas tendencias y demandas de la industria.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-us" id="sobre-nosotros">
-        <div class="container">
-            <h2 class="section-title">Nuestra Historia</h2>
-            <div class="about-us-content">
-                <p>Tu Primera Chamba nació en 2025 como un proyecto ambicioso de estudiantes de Gestión de Marketing del Instituto Zegel Ipae. Nuestro equipo, conformado por Julissa Carcamo, Eleazar Cordero, Nicole Flores, Jazmin Monzón y Solange Saldaña, fue impulsado por una profunda frustración: la dificultad para jóvenes talentosos de ingresar al mercado laboral peruano debido a la falta de "experiencia". Vimos el potencial no explotado y la brecha gigante entre la academia y las necesidades reales de las empresas. Por ello, nos propusimos romper este círculo vicioso. Concebimos un modelo donde la experiencia se gana trabajando en proyectos reales y remunerados, permitiendo a los jóvenes construir un portafolio sólido y a las empresas encontrar el talento emergente que necesitan.</p>
-                <p>Desde nuestra concepción, hemos imaginado cómo transformar la vida de miles de jóvenes, conectándolos con su primer empleo y contribuyendo al desarrollo de una fuerza laboral más dinámica y preparada en Perú. Nuestra misión es empoderar a cada joven para que transforme su futuro profesional hoy mismo, superando las barreras de la experiencia y abriendo las puertas a un futuro prometedor.</p>
-            </div>
-        </div>
-    </section>
-
     <section class="plans" id="planes">
         <div class="container">
-            <h2 class="section-title">¡Desbloquea tu Potencial! Elige el Plan que Impulsará tu Carrera</h2>
+            <h2 class="section-title">¡Desbloquea tu Potencial! Elige tu Plan</h2>
             <p class="section-subtitle">Acceso exclusivo a oportunidades, capacitación de élite y garantía de empleabilidad para tu éxito.</p>
             <div class="plans-grid">
                 <div class="plan-card">
@@ -1551,10 +1449,108 @@
                             <li>Sesiones Estratégicas con CEO's y Directivos: Conexión directa con líderes de la industria.</li>
                             <li>Certificaciones Expertas y Reconocidas: Acredita tu maestría en áreas clave.</li>
                             <li>Conexión Directa con Reclutadores VIP: Presentaciones personalizadas a ofertas de empleo.</li>
-                            <li>¡Garantía de Empleabilidad en 90 Días! (Devolución total si no lo logras siguiendo el plan).</li>
+                            <li>¡Garantía de Empleabilidad en 90 Días! (Devolución total si no lo logras).</li>
                         </ul>
                     </div>
                     <a href="#" class="btn btn-primary">¡Conquista tu Empleo Soñado por S/99/Mes!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="preguntas-frecuentes">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Qué es "Tu Primera Chamba" y cómo funciona?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tu Primera Chamba conecta a jóvenes sin experiencia con proyectos empresariales reales. Gana experiencia, construye tu portafolio y recibe pagos semanales. Luego, te conectamos con oportunidades de empleo permanente.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Necesito tener experiencia previa para unirme?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>¡No! Nuestro programa es para jóvenes con poca o ninguna experiencia. Evaluamos tus habilidades básicas y te brindamos capacitación y mentoring necesario.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Cuánto tiempo dura el programa hasta conseguir un empleo?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nuestro programa intensivo está diseñado para que consigas tu primer empleo permanente en un promedio de 90 días, gracias a la experiencia real y el portafolio que construyes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Recibo pago por los proyectos?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, absolutamente. Te pagamos semanalmente por tu trabajo en los proyectos. Ganas dinero mientras aprendes y construyes tu experiencia.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Qué tipo de empresas participan?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Trabajamos con una red diversa de empresas: startups y compañías establecidas en tecnología, marketing digital, diseño, ventas y administración.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Garantía de empleo o solo contacto?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Buscamos que obtengas un empleo real. Nuestra metodología (proyectos remunerados, portafolio, conexiones directas) te prepara como candidato preferente. Los planes premium ofrecen garantía de devolución si no consigues empleo siguiendo el plan.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Cómo es el pago?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Los pagos por los proyectos se realizan semanalmente, directamente a tu cuenta bancaria o medios de pago digitales acordados. Te aseguras de recibir una compensación justa.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Cómo funciona la mentoría?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Te asignamos mentores expertos en tu área que te guiarán en cada proyecto, brindando feedback constructivo. Los planes premium ofrecen mentoría más personalizada y acceso a expertos de la industria.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Las certificaciones serán válidas?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, nuestras certificaciones son reconocidas por las empresas aliadas, validando las habilidades y experiencia práctica adquirida. Son un respaldo tangible de tu capacidad profesional.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Hay actualización constante?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutamente. Actualizamos continuamente nuestros proyectos, capacitaciones y recursos para que las habilidades que adquieras estén siempre alineadas con las últimas tendencias del mercado laboral.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1579,7 +1575,7 @@
                 <div class="footer-section">
                     <h3>Para Empresas</h3>
                     <ul>
-                        <li><a href="#">Contratar Talento</a></li>
+                        <li><a href="#" onclick="openModal('modalEmpresa')">Contratar Talento</a></li>
                         <li><a href="#">Publicar Proyecto</a></li>
                         <li><a href="#">Casos de Éxito</a></li>
                         <li><a href="#planes">Planes Empresariales</a></li>
@@ -1750,7 +1746,7 @@
                 const isRating = counter.textContent.includes('⭐');
                 const increment = target / 50;
                 let current = 0;
-                
+
                 const updateCounter = () => {
                     if (current < target) {
                         current += increment;
@@ -1767,7 +1763,7 @@
                         counter.textContent = counter.textContent;
                     }
                 };
-                
+
                 updateCounter();
             });
         }
@@ -1808,7 +1804,7 @@
                 form.addEventListener('submit', (e) => {
                     e.preventDefault();
                     alert('¡Gracias por tu interés! Te contactaremos muy pronto para iniciar tu transformación profesional.');
-                    // Here you would typically send the form data to your server
+                    // In a real application, you would send the form data to your server here
                     closeModal('modalJoven');
                     closeModal('modalEmpresa');
                 });
@@ -1825,7 +1821,7 @@
             }
         });
 
-        // FAQ Toggle functionality (added for interactivity, though simple static for now)
+        // FAQ Toggle functionality
         function toggleFAQ(element) {
             const faqItem = element.closest('.faq-item');
             faqItem.classList.toggle('active');
