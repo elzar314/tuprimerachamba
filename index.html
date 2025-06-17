@@ -6,9 +6,7 @@
     <title>Tu Primera Chamba - Transforma tu futuro hoy</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Estilos globales existentes (asegúrate de que los tuyos estén aquí) */
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +14,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacMacSystemFont, sans-serif;
             line-height: 1.6;
             color: #1a1a2e;
             overflow-x: hidden;
@@ -28,7 +26,7 @@
             padding: 0 20px;
         }
 
-        /* Header (ejemplo, asegúrate de tener el tuyo) */
+        /* Header */
         header {
             background: rgba(68, 49, 218, 0.95);
             backdrop-filter: blur(10px);
@@ -38,260 +36,673 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(68, 49, 218, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .header-content {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: white;
-            text-decoration: none;
-        }
-
-        nav ul {
-            list-style: none;
+            font-size: 1.3rem;
+            font-weight: 900; /* Inter 900 is quite bold and friendly */
+            color: #FFFFFF; /* Pure white for the text */
+            background: none; /* Remove gradient background-clip */
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
             display: flex;
+            align-items: center;
+            font-family: 'Inter', sans-serif; /* Explicitly set font for logo */
         }
 
-        nav ul li {
-            margin-left: 30px;
+        .logo img {
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 10px;
         }
 
-        nav ul li a {
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffffff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(68, 49, 218, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.8rem 2rem;
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        nav ul li a:hover {
-            color: #d1c4e9;
+        .mobile-menu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 2.5rem;
         }
 
-        /* Hero Section (ejemplo, asegúrate de tener el tuyo) */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #4431da 0%, #6c5ce7 100%);
-            color: white;
-            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #4431da 0%, #6c5ce7 50%, #ffffff 100%);
+            color: #1a1a2e;
+            padding: 140px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
         .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 25px;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             font-weight: 900;
             line-height: 1.1;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-highlight {
+            color: #4431da;
+            font-weight: 900;
+        }
+
+        .hero-highlight.white-text {
+            color: white;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
         }
 
         .hero p {
-            font-size: 1.6rem;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            opacity: 0.9;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+            color: #1a1a2e;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            background: #fff;
-            color: #4431da;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 18px 35px;
             border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .btn:hover {
-            background: #f0f0f0;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: #4431da;
+            color: white;
+            box-shadow: 0 8px 25px rgba(68, 49, 218, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(68, 49, 218, 0.6);
         }
 
         .btn-secondary {
-            background: #ff5e62;
-            color: white;
+            background: white;
+            color: #4431da;
+            border: 2px solid #4431da;
         }
 
         .btn-secondary:hover {
-            background: #e04b4f;
+            transform: translateY(-3px) scale(1.05);
+            background: #4431da;
+            color: white;
+            box-shadow: 0 15px 35px rgba(68, 49, 218, 0.4);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: #4431da;
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            animation: countUp 2s ease-out;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
             color: white;
         }
 
-        /* General Section Styling */
-        section {
-            padding: 120px 0;
-            text-align: center;
-            opacity: 0; /* Initial state for animation */
-            transform: translateY(20px); /* Initial state for animation */
-            transition: opacity 0.6s ease, transform 0.6s ease; /* Animation */
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Problem Solution Section */
+        .problem-solution {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+            position: relative;
         }
 
         .section-title {
-            font-size: 3.2rem;
-            margin-bottom: 2rem;
-            color: #1a1a2e;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
             font-weight: 800;
-            position: relative;
-            display: inline-block;
+            color: #4431da;
         }
 
-        .section-title::after {
+        .problem-solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            margin-bottom: 4rem; /* Reduced margin to be closer to the separator */
+        }
+
+        .problem-solution-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .problem-content h3 {
+            color: #ff4757;
+        }
+
+        .solution-content h3 {
+            color: #4431da;
+        }
+
+        .problem-solution-content p {
+            font-size: 1.2rem;
+            color: #5a5a5a;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-solution-image {
+            text-align: center;
+            background: linear-gradient(135deg, #4431da, #6c5ce7);
+            padding: 20px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 20px 60px rgba(68, 49, 218, 0.2);
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .problem-solution-image img {
+            width: 100%;
+            max-width: 300px;
+            max-height: 400px; /* Increased max-height for images */
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 0; /* Removed margin to allow overlap with gradient */
+            box-shadow: none; /* Removed shadow from the image itself */
+            border-radius: 0; /* Removed border-radius from the image itself */
+        }
+
+        .problem-solution-image .image-description {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: white;
+            line-height: 1.5;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 1;
+            padding: 1rem; /* Added padding for better readability */
+        }
+
+        .problem-solution-image::before {
             content: '';
             position: absolute;
-            left: 50%;
-            bottom: -15px;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 6px;
-            background: #4431da;
-            border-radius: 3px;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
         }
 
-        /* Modal (ejemplo, asegúrate de tener el tuyo) */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
+        .problem-solution-image::after {
+            content: '';
+            position: absolute;
             left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 25%; /* Height of the gradient */
+            background: linear-gradient(to bottom, rgba(68, 49, 218, 0) 0%, rgba(68, 49, 218, 1) 100%); /* Gradient from transparent to main color */
+            opacity: 0.7; /* Adjust opacity as needed, 0.7 to ensure visibility without being too strong */
+            pointer-events: none; /* Allows clicks to pass through */
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        /* Separator */
+        .section-separator {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, #ddd 0%, #4431da 50%, #ddd 100%);
+            margin: 60px auto; /* Adjust margin to control spacing */
+            max-width: 80%; /* Width of the separator line */
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .how-it-works .section-title {
+            color: #4431da;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(68, 49, 218, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #f0f0f0;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
             top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #4431da;
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(68, 49, 218, 0.2);
+            border-color: #4431da;
+        }
+
+        .step-number {
+            background: #4431da;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin: 0 auto 1.2rem;
+            box-shadow: 0 8px 25px rgba(68, 49, 218, 0.3);
+        }
+
+        .step h3 {
+            margin-bottom: 0.8rem;
+            color: #1a1a2e;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background: #4431da;
+            color: white;
+        }
+
+        .features .section-title {
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1); /* Added transparent background */
+            backdrop-filter: blur(10px); /* Keep backdrop filter for a subtle effect */
+            padding: 1.5rem; /* Adjusted padding */
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none; /* No border for the card */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: none; /* No shadow for the card itself */
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            /* Keep background and shadow only on the icon or a new wrapper if desired */
+            box-shadow: none; /* Removed shadow from the card on hover */
+        }
+
+        .feature-icon {
+            background: none; /* No background for the icon container */
+            padding: 0; /* No padding, image directly controls size within container */
+            border-radius: 20px; /* Rounded corners for the icon container */
+            margin-bottom: 1rem;
+            border: none; /* No border for the icon container */
+            width: 180px; /* Increased size for the icon container */
+            height: 180px; /* Increased size for the icon container */
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Added shadow for the icon container */
+            overflow: hidden; /* Ensure image adheres to rounded corners */
+        }
+
+        .feature-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover; /* Crop to fill the container and respect border-radius */
+            border-radius: 20px; /* Apply border-radius to the image itself */
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            opacity: 0.9;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+        }
+
+        .testimonials .section-title {
+            color: #4431da;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(68, 49, 218, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #f0f0f0;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 4rem;
+            color: #4431da;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(68, 49, 218, 0.15);
+            border-color: #4431da;
+        }
+
+        .testimonial-image {
+            background: #4431da;
+            padding: 5px; /* Minimal padding for image to be larger within */
+            border-radius: 50%;
+            width: 180px; /* Increased container size for larger image */
+            height: 180px; /* Increased container size for larger image */
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-image img {
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.6);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 40px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            position: relative;
-            text-align: center;
-        }
-
-        .close-button {
-            color: #aaa;
-            font-size: 35px;
-            font-weight: bold;
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            cursor: pointer;
-        }
-
-        .close-button:hover,
-        .close-button:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal-content h2 {
-            color: #4431da;
-            margin-bottom: 25px;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .modal-content label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            text-align: left;
-            color: #333;
-        }
-
-        .modal-content input[type="text"],
-        .modal-content input[type="email"],
-        .modal-content input[type="tel"],
-        .modal-content textarea {
-            width: calc(100% - 20px);
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            background-color: #f9f9f9;
-        }
-
-        .modal-content button[type="submit"] {
-            background-color: #4431da;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
+        .testimonial p {
             font-size: 1.1rem;
+            color: #5a5a5a;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial h4 {
+            color: #4431da;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
-            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .modal-content button[type="submit"]:hover {
-            background-color: #6c5ce7;
-            transform: translateY(-2px);
+        .testimonial span {
+            color: #888;
+            font-size: 0.9rem;
         }
 
-        /* Responsive Design (ejemplo, asegúrate de tener el tuyo) */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
+        /* Trust Section */
+        .trust {
+            padding: 120px 0;
+            background: #1a1a2e;
+            color: white;
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 12px 25px;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
+        .trust .section-title {
+            color: white;
         }
 
-        /* --- NUEVOS ESTILOS PARA LAS SECCIONES --- */
+        .trust-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(68, 49, 218, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(68, 49, 218, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-5px);
+            background: rgba(68, 49, 218, 0.2);
+        }
+
+        .trust-icon {
+            background: #4431da;
+            color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 15px 40px rgba(68, 49, 218, 0.4);
+            overflow: hidden; /* Ensure image adheres to border-radius */
+        }
+        .trust-icon img {
+            max-width: 70%;
+            max-height: 70%;
+            object-fit: contain;
+            border-radius: 50%; /* Make image itself circular */
+        }
+
+        .trust-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .trust-item p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
 
         /* FAQ Section */
         .faq {
@@ -301,101 +712,63 @@
 
         .faq .section-title {
             color: #4431da;
-            margin-bottom: 5rem;
         }
 
-        .faq-accordion {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .accordion-item {
+        .faq-item {
             background: white;
-            border: 1px solid #e1e8ed;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(68, 49, 218, 0.08);
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(68, 49, 218, 0.08);
+            border: 1px solid #e1e8ed;
             transition: all 0.3s ease;
         }
 
-        .accordion-item:hover {
-            box-shadow: 0 15px 45px rgba(68, 49, 218, 0.15);
+        .faq-item:hover {
             transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(68, 49, 218, 0.12);
         }
 
-        .accordion-header {
+        .faq-question {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            padding: 25px 30px;
-            background: #fff;
-            border: none;
-            cursor: pointer;
-            text-align: left;
-            font-size: 1.25rem;
+            padding: 1.5rem 2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #1a1a2e;
+            cursor: pointer;
+            background: #ffffff;
             transition: background 0.3s ease;
         }
 
-        .accordion-header:hover {
+        .faq-question:hover {
             background: #f8faff;
         }
 
-        .accordion-header h3 {
-            margin: 0;
-            font-size: 1.25rem;
-            color: #4431da;
-        }
-
-        .accordion-icon {
-            font-size: 2rem;
-            font-weight: 300;
+        .faq-question .icon {
+            font-size: 1.5rem;
             color: #4431da;
             transition: transform 0.3s ease;
         }
 
-        .accordion-item.active .accordion-icon {
-            transform: rotate(45deg);
-        }
-
-        .accordion-content {
+        .faq-answer {
+            padding: 0 2rem 1.5rem;
+            font-size: 1rem;
+            color: #5a5a5a;
+            line-height: 1.7;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-            padding: 0 30px;
         }
 
-        .accordion-item.active .accordion-content {
-            max-height: 300px; /* Ajusta según el contenido de las respuestas */
-            padding: 15px 30px 25px;
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* Adjust based on content */
+            padding-top: 1rem;
         }
 
-        .accordion-content p {
-            font-size: 1.1rem;
-            color: #5a5a5a;
-            line-height: 1.7;
-        }
-
-        @media (max-width: 768px) {
-            .accordion-header {
-                padding: 20px 25px;
-                font-size: 1.1rem;
-            }
-            .accordion-header h3 {
-                font-size: 1.1rem;
-            }
-            .accordion-content {
-                padding: 0 25px;
-            }
-            .accordion-item.active .accordion-content {
-                padding: 10px 25px 20px;
-            }
-            .accordion-content p {
-                font-size: 1rem;
-            }
+        .faq-item.active .faq-question .icon {
+            transform: rotate(180deg);
         }
 
         /* About Us Section */
@@ -406,50 +779,37 @@
 
         .about-us .section-title {
             color: #4431da;
-            margin-bottom: 4rem;
         }
 
-        .about-history h3 {
-            font-size: 2rem;
-            color: #1a1a2e;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .about-history p {
+        .about-us-content {
             font-size: 1.1rem;
             color: #5a5a5a;
             line-height: 1.8;
-            max-width: 900px;
-            margin: 0 auto 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .about-history p strong {
-            color: #4431da;
+        .about-us-content p {
+            margin-bottom: 1.5rem;
         }
 
-        /* Pricing Plans Section */
-        .pricing-plans {
+        /* Plans Section */
+        .plans {
             padding: 120px 0;
-            background: linear-gradient(135deg, #4431da 0%, #6c5ce7 100%);
+            background: #4431da;
             color: white;
         }
 
-        .pricing-plans .section-title {
+        .plans .section-title {
             color: white;
-            margin-bottom: 1rem;
         }
 
-        .section-subtitle {
+        .plans .section-subtitle {
             text-align: center;
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 4rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            opacity: 0.9;
         }
 
         .plans-grid {
@@ -459,14 +819,13 @@
         }
 
         .plan-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
             border-radius: 20px;
-            padding: 2.5rem;
+            padding: 3rem 2rem;
             text-align: center;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -474,211 +833,564 @@
 
         .plan-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .plan-card.featured {
-            background: white;
-            color: #1a1a2e;
-            transform: scale(1.05);
-            border: 3px solid #f8faff; /* Adjusted border to match gradient */
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
-        .plan-card.featured .plan-header h3 {
-            color: #4431da;
-        }
-
-        .plan-card.featured .price {
-            color: #4431da;
-        }
-
-        .plan-card.featured .period {
-            color: #666;
-        }
-
-        .plan-card.featured .plan-features ul li {
-            color: #5a5a5a;
-        }
-
-        .plan-card.featured .plan-features ul li .fas.fa-check-circle {
-            color: #4431da;
-        }
-
-        .plan-card.featured .plan-features ul li .fas.fa-times-circle {
-            color: #ccc;
-        }
-
-
-        .plan-header h3 {
+        .plan-card h3 {
             font-size: 2rem;
-            margin-bottom: 1rem;
             font-weight: 800;
-            color: white; /* Default for non-featured cards */
+            margin-bottom: 1rem;
+            color: white;
         }
 
-        .price {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: white; /* Default for non-featured cards */
-            margin-bottom: 1rem; /* Reduced margin */
-            line-height: 1;
+        .plan-card .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
         }
 
-        .price .period {
-            font-size: 1.2rem;
-            font-weight: 500;
+        .plan-card .ideal-for {
+            font-size: 0.95rem;
             opacity: 0.8;
-        }
-
-        .plan-header p.ideal-for { /* Added style for 'ideal-for' */
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 2rem;
         }
 
-        .plan-card.featured .plan-header p.ideal-for {
-            color: #666;
-        }
-
-        .plan-features ul {
+        .plan-card ul {
             list-style: none;
-            padding: 0;
-            margin-bottom: 2.5rem;
             text-align: left;
+            margin-bottom: 2rem;
+            flex-grow: 1;
         }
 
-        .plan-features ul li {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start; /* Align icon and text at the top */
-            color: rgba(255, 255, 255, 0.9); /* Default for non-featured cards */
+        .plan-card ul li {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+            opacity: 0.9;
         }
 
-        .plan-features ul li i {
-            margin-right: 10px;
-            font-size: 1.3rem;
-            flex-shrink: 0; /* Prevent icon from shrinking */
-            margin-top: 2px; /* Small adjustment for vertical alignment */
+        .plan-card ul li::before {
+            content: '✓';
+            color: #a7f3d0; /* Light green checkmark */
+            font-weight: 900;
+            position: absolute;
+            left: 0;
         }
 
-        .plan-features ul li .fas.fa-check-circle {
-            color: #3ae374; /* Green for checkmark */
+        .plan-card ul li.negative::before {
+            content: '✗';
+            color: #fca5a5; /* Light red cross */
         }
 
-        .plan-features ul li.unavailable {
-            opacity: 0.6;
-            /* text-decoration: line-through; Eliminado para usar solo el icono X */
-        }
-
-        .plan-features ul li .fas.fa-times-circle {
-            color: #ff6b81; /* Red for cross */
-        }
-
-        .plan-footer .btn {
+        .plan-card .btn {
             width: 100%;
+            padding: 15px 0;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f23;
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
             text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 3% auto;
+            padding: 3rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(68, 49, 218, 0.3);
+            animation: modalSlideIn 0.3s ease;
+            max-height: 90vh; 
+            overflow-y: auto;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            color: #4431da;
+            transform: scale(1.1);
+        }
+
+        .modal-content h2 {
+            color: #4431da;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8faff;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4431da;
+            background: white;
+            box-shadow: 0 5px 15px rgba(68, 49, 218, 0.1);
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4431da;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(68, 49, 218, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(68, 49, 218, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            .pricing-plans .section-title {
-                font-size: 1.8rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
-            .section-subtitle {
+
+            .problem-solution-content p { /* Afecta los párrafos de "El problema real" y "Nuestra solución ganadora" */
+            font-size: 1rem; /* <-- Añade esta regla con el tamaño deseado (ej. 1rem o 0.9rem) */
+            }
+    
+            .logo {
+            font-size: 1.2rem; /* <-- Añade o cambia este valor para móvil */
+            }
+
+            .hero p {
                 font-size: 1.1rem;
             }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .problem-solution-grid {
+                grid-template-columns: 1fr;
+                gap: 1.3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                padding: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                padding: 12px 25px; /* <-- Ajusta este valor (por ejemplo, de 18px 35px a 12px 25px) */
+                font-size: 1rem;
+            }
+
             .plans-grid {
                 grid-template-columns: 1fr;
             }
-            .plan-card.featured {
-                transform: scale(1.03);
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .fab {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container header-content">
-            <a href="#" class="logo">Tu Primera Chamba</a>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#como-funciona">Cómo Funciona</a></li>
-                    <li><a href="#beneficios">Beneficios</a></li>
-                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                    <li><a href="#preguntas-frecuentes">FAQ</a></li>
-                    <li><a href="#planes">Planes</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Tu Primera Chamba Logo">
+                Tu Primera Chamba
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#como-funciona">Proceso</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+                <a href="#como-funciona" onclick="closeMobileMenu()">Proceso</a>
+                <a href="#proyectos" onclick="closeMobileMenu()">Proyectos</a>
+                <a href="#testimonios" onclick="closeMobileMenu()">Testimonios</a>
+                <a href="#preguntas-frecuentes" onclick="closeMobileMenu()">Preguntas Frecuentes</a>
+                <a href="#sobre-nosotros" onclick="closeMobileMenu()">Sobre Nosotros</a>
+                <a href="#planes" onclick="closeMobileMenu()">Planes</a>
+                <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+            </div>
+        </nav>
     </header>
 
     <section class="hero" id="inicio">
         <div class="container">
-            <h1>Encuentra Tu Primera Chamba Hoy</h1>
-            <p>Conecta con proyectos reales, gana experiencia, y asegura tu futuro profesional.</p>
-            <a href="#" class="btn" onclick="openModal('modalJoven')">¡Empieza Tu Transformación!</a>
+            <div class="hero-content">
+                <h1><span class="hero-highlight white-text">Transforma</span> tu futuro profesional <span class="hero-highlight">HOY</span></h1>
+                <p>🚀 De cero experiencia a primer empleo en 90 días. Proyectos reales, pagos inmediatos, portafolio ganador.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary" onclick="openModal('modalJoven')">Empezar Ahora - GRATIS</a>
+                    <a href="#" class="btn btn-secondary" onclick="openModal('modalEmpresa')">Contratar Talento</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div id="modalJoven" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('modalJoven')">&times;</span>
-            <h2>Regístrate como Joven</h2>
-            <form>
-                <label for="nombreJoven">Nombre Completo:</label>
-                <input type="text" id="nombreJoven" name="nombreJoven" required>
-
-                <label for="emailJoven">Correo Electrónico:</label>
-                <input type="email" id="emailJoven" name="emailJoven" required>
-
-                <label for="telefonoJoven">Número de Teléfono:</label>
-                <input type="tel" id="telefonoJoven" name="telefonoJoven" required>
-
-                <label for="interesesJoven">Áreas de Interés:</label>
-                <textarea id="interesesJoven" name="interesesJoven" rows="3" placeholder="Ej: Marketing Digital, Diseño Gráfico, Programación..."></textarea>
-
-                <button type="submit">Enviar Solicitud</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="modalEmpresa" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('modalEmpresa')">&times;</span>
-            <h2>Regístrate como Empresa</h2>
-            <form>
-                <label for="nombreEmpresa">Nombre de la Empresa:</label>
-                <input type="text" id="nombreEmpresa" name="nombreEmpresa" required>
-
-                <label for="contactoEmpresa">Nombre de Contacto:</label>
-                <input type="text" id="contactoEmpresa" name="contactoEmpresa" required>
-
-                <label for="emailEmpresa">Correo Electrónico:</label>
-                <input type="email" id="emailEmpresa" name="emailEmpresa" required>
-
-                <label for="telefonoEmpresa">Número de Teléfono:</label>
-                <input type="tel" id="telefonoEmpresa" name="telefonoEmpresa" required>
-
-                <label for="descripcionEmpresa">Proyectos que buscan:</label>
-                <textarea id="descripcionEmpresa" name="descripcionEmpresa" rows="3" placeholder="Ej: Diseño de logo, campaña de redes sociales, desarrollo web..."></textarea>
-
-                <button type="submit">Enviar Solicitud</button>
-            </form>
-        </div>
-    </div>
-
-    <section class="about-us" id="sobre-nosotros">
+    <section class="stats">
         <div class="container">
-            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1,200+</h3>
+                    <p>Jóvenes empleados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>85%</h3>
+                    <p>Consigue empleo en 3 meses</p>
+                </div>
+                <div class="stat-item">
+                    <h3>S/1,200</h3>
+                    <p>Ingreso promedio primer mes</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.7⭐</h3>
+                    <p>Satisfacción garantizada</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="about-history">
-                <h3>Nuestra Historia</h3>
-                <p><strong>Tu Primera Chamba</strong> nació en 2025 como un proyecto ambicioso de estudiantes de Gestión de Marketing del Instituto Zegel Ipae. Nuestro equipo, conformado por Julissa Carcamo, Eleazar Cordero, Nicole Flores, Jazmin Monzón y Solange Saldaña, fue impulsado por una profunda frustración: la dificultad para jóvenes talentosos de ingresar al mercado laboral peruano debido a la falta de "experiencia". Vimos el potencial no explotado y la brecha gigante entre la academia y las necesidades reales de las empresas. Por ello, nos propusimos romper este círculo vicioso. Concebimos un modelo donde la experiencia se gana trabajando en proyectos reales y remunerados, permitiendo a los jóvenes construir un portafolio sólido y a las empresas encontrar el talento emergente que necesitan.</p>
-                <p>Desde nuestra concepción, hemos imaginado cómo transformar la vida de miles de jóvenes, conectándolos con su primer empleo y contribuyendo al desarrollo de una fuerza laboral más dinámica y preparada en Perú. Nuestra misión es empoderar a cada joven para que transforme su futuro profesional hoy mismo, superando las barreras de la experiencia y abriendo las puertas a un futuro prometedor.</p>
+    <section class="problem-solution">
+        <div class="container">
+            <h2 class="section-title">El Círculo Vicioso que Romperemos Juntos</h2>
+            <div class="problem-solution-grid">
+                <div class="problem-solution-content problem-content">
+                    <h3>❌ El Problema Real</h3>
+                    <p><strong>No tienes experiencia porque nadie te da trabajo.</strong></p>
+                    <p>Miles de jóvenes talentosos quedan fuera por este círculo imposible de romper.</p>
+                    <p>Las empresas piden 2-3 años de experiencia para puestos "junior" - ¡Es una locura!</p>
+                </div>
+                <div class="problem-solution-image">
+                    <img src="problem-vicious-cycle.png" alt="Círculo Vicioso">
+                    <div class="image-description">
+                        <strong>Círculo vicioso:</strong><br>
+                        Sin trabajo no hay experiencia<br>
+                        Sin experiencia no hay trabajo
+                    </div>
+                </div>
+            </div>
+            <div class="problem-solution-grid">
+                <div class="problem-solution-image">
+                    <img src="solution-ladder.png" alt="Tu Nueva Escalera al Éxito Profesional">
+                    <div class="image-description">
+                        <strong>Tu nueva escalera al éxito profesional</strong><br>
+                        Proyectos → Experiencia → Empleo
+                    </div>
+                </div>
+                <div class="problem-solution-content solution-content">
+                    <h3>✅ Nuestra Solución Ganadora</h3>
+                    <p><strong>Proyectos reales que te dan experiencia MIENTRAS ganas dinero.</strong></p>
+                    <p>Trabajas en desafíos de empresas reales, construyes tu portafolio y demuestras tu valor.</p>
+                    <p>Cuando llega la entrevista, ya no eres "sin experiencia" - eres un profesional con resultados probados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-separator">
+
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <h2 class="section-title">Tu Camino al Éxito en 4 Pasos</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Registro y Evaluación</h3>
+                    <p>Te registras gratis y evaluamos tus habilidades básicas. No importa tu nivel inicial - te ayudamos a crecer.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Asignación de Proyecto</h3>
+                    <p>Te conectamos con un proyecto real de una empresa. Recibes capacitación específica y mentoring personalizado.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Desarrollo y Pago</h3>
+                    <p>Trabajas en el proyecto mientras aprendes. Recibes pagos semanales por tu trabajo - ¡empiezas a ganar desde el día 1!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Empleo Permanente</h3>
+                    <p>Con experiencia comprobada y un portafolio sólido, te conectamos con empleadores que buscan exactamente tu perfil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="proyectos">
+        <div class="container">
+            <h2 class="section-title">Lo Que Te Hace Diferente</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="feature-icon-projects.png" alt="Proyectos Reales"></div>
+                    <h3>Proyectos Reales</h3>
+                    <p>No simulaciones. Trabajas en desafíos reales de empresas reales con impacto real en tu carrera.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="feature-icon-money.png" alt="Gana Mientras Aprendes"></div>
+                    <h3>Gana Mientras Aprendes</h3>
+                    <p>Pagos semanales desde tu primer proyecto. Convierte tu aprendizaje en una fuente de ingresos inmediata.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="feature-icon-mentoring.png" alt="Mentoring Personalizado"></div>
+                    <h3>Mentoring Personalizado</h3>
+                    <p>Un mentor experto te guía en cada proyecto. Feedback constante y crecimiento acelerado garantizado.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="feature-icon-portfolio.png" alt="Portafolio Ganador"></div>
+                    <h3>Portafolio Ganador</h3>
+                    <p>Cada proyecto suma a tu portafolio profesional. Casos de éxito reales que impresionan a empleadores.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="feature-icon-connection.png" alt="Conexión Directa"></div>
+                    <h3>Conexión Directa</h3>
+                    <p>Te conectamos directamente con empresas que necesitan tu perfil. No más postulaciones sin respuesta.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="feature-icon-growth.png" alt="Crecimiento Acelerado"></div>
+                    <h3>Crecimiento Acelerado</h3>
+                    <p>Programa intensivo de 90 días que te transforma de principiante a profesional empleable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <h2 class="section-title">Historias de Éxito Reales</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-image"><img src="testimonial-maria.png" alt="Foto de María Rodríguez"></div>
+                    <p>En 3 meses pasé de desempleada a analista de datos en una startup. El primer proyecto me pagó S/800 y me dio la confianza que necesitaba.</p>
+                    <h4>María Rodríguez</h4>
+                    <span>Analista de Datos - TechPeru</span>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-image"><img src="testimonial-carlos.png" alt="Foto de Carlos Mendoza"></div>
+                    <p>Pensé que necesitaba años de universidad. Con Tu Primera Chamba conseguí mi primer empleo en marketing digital en 2 meses.</p>
+                    <h4>Carlos Mendoza</h4>
+                    <span>Marketing Digital - StartupLima</span>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-image"><img src="testimonial-ana.png" alt="Foto de Ana López"></div>
+                    <p>Los proyectos reales me dieron más experiencia que cualquier curso. Ahora soy desarrolladora junior con sueldo fijo.</p>
+                    <h4>Ana López</h4>
+                    <span>Desarrolladora - InnovaTech</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="container">
+            <h2 class="section-title">Garantía Total de Resultados</h2>
+            <div class="trust-features">
+                <div class="trust-item">
+                    <div class="trust-icon"><img src="trust-icon-success-web.png" alt="Ícono de Éxito"></div>
+                    <h3>85% de Éxito</h3>
+                    <p>8 de cada 10 participantes consiguen empleo en los primeros 3 meses.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><img src="trust-icon-payment-web.png" alt="Ícono de Pago Garantizado"></div>
+                    <h3>Pago Garantizado</h3>
+                    <p>Si no ganas dinero en tu primer mes, te devolvemos el 100% de tu inversión.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><img src="trust-icon-support-web.png" alt="Ícono de Soporte"></div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Equipo de mentores disponible todos los días para resolver tus dudas.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><img src="trust-icon-connections-web.png" alt="Ícono de Conexiones"></div>
+                    <h3>Conexiones Reales</h3>
+                    <p>Red de más de 200 empresas aliadas buscando activamente nuevo talento.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -686,94 +1398,94 @@
     <section class="faq" id="preguntas-frecuentes">
         <div class="container">
             <h2 class="section-title">Preguntas Frecuentes</h2>
-            <div class="faq-accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Qué es "Tu Primera Chamba" y cómo funciona?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Qué es "Tu Primera Chamba" y cómo funciona?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>Tu Primera Chamba es una plataforma que conecta a jóvenes sin experiencia laboral con proyectos reales de empresas. A través de estos proyectos, ganas experiencia, construyes un portafolio y recibes pagos semanales. Una vez que demuestras tu valía, te conectamos con oportunidades de empleo permanente.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Necesito tener experiencia previa para unirme?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Necesito tener experiencia previa para unirme?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>¡No! Nuestro programa está diseñado específicamente para jóvenes con poca o ninguna experiencia. Evaluamos tus habilidades básicas al inicio y te proporcionamos la capacitación y el mentoring necesario para cada proyecto.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Cuánto tiempo dura el programa hasta conseguir un empleo?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Cuánto tiempo dura el programa hasta conseguir un empleo?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>Nuestro programa intensivo está diseñado para que consigas tu primer empleo permanente en un promedio de 90 días, gracias a la experiencia real que adquieres y el portafolio que construyes.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Recibo pago por los proyectos?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Recibo pago por los proyectos?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>Sí, absolutamente. Te pagamos semanalmente por tu trabajo en los proyectos. Es una de nuestras diferencias clave: ganas dinero mientras aprendes y construyes tu experiencia.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Qué tipo de empresas participan?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Qué tipo de empresas participan?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>Trabajamos con una red diversa de empresas, desde startups innovadoras hasta compañías establecidas en diversos sectores como tecnología, marketing digital, diseño, ventas y administración.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Garantía de empleo o solo contacto?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Garantía de empleo o solo contacto?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>Nos esforzamos por ir más allá del simple contacto. Nuestro objetivo es que obtengas un empleo real. A través de nuestra metodología, que incluye proyectos remunerados, desarrollo de portafolio y conexiones directas con empresas, te preparamos para ser un candidato preferente. Los planes premium, además, incluyen una garantía de devolución si, siguiendo nuestro proceso, no consigues un empleo en el tiempo estipulado.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Cómo es el pago?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Cómo es el pago?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>Los pagos por los proyectos se realizan de forma semanal, directamente a tu cuenta bancaria o a través de los medios de pago digitales que acordemos. Nos aseguramos de que recibas una compensación justa por tu trabajo y esfuerzo.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Cómo funciona la mentoría?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Cómo funciona la mentoría?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>Nuestra mentoría es un pilar fundamental. Te asignamos mentores expertos en tu área de interés que te guiarán en cada proyecto, te darán feedback constructivo y compartirán su experiencia. Los planes premium ofrecen sesiones de mentoría más personalizadas y acceso a expertos de la industria.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Certificaciones serán válidas?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Certificaciones serán válidas?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>Sí, nuestras certificaciones son reconocidas por las empresas aliadas y validan las habilidades y la experiencia práctica que adquieres al completar exitosamente los proyectos. Son un respaldo tangible de tu capacidad profesional.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h3>¿Actualización constante?</h3>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        ¿Actualización constante?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
                         <p>Absolutamente. El mercado laboral está en constante evolución, y nosotros también. Nuestros proyectos, capacitaciones y recursos se actualizan continuamente para asegurar que las habilidades que adquieres estén siempre alineadas con las últimas tendencias y demandas de la industria.</p>
                     </div>
                 </div>
@@ -781,143 +1493,304 @@
         </div>
     </section>
 
-    <section class="pricing-plans" id="planes">
+    <section class="about-us" id="sobre-nosotros">
+        <div class="container">
+            <h2 class="section-title">Nuestra Historia</h2>
+            <div class="about-us-content">
+                <p>Tu Primera Chamba nació en 2025 como un proyecto ambicioso de estudiantes de Gestión de Marketing del Instituto Zegel Ipae. Nuestro equipo, conformado por Julissa Carcamo, Eleazar Cordero, Nicole Flores, Jazmin Monzón y Solange Saldaña, fue impulsado por una profunda frustración: la dificultad para jóvenes talentosos de ingresar al mercado laboral peruano debido a la falta de "experiencia". Vimos el potencial no explotado y la brecha gigante entre la academia y las necesidades reales de las empresas. Por ello, nos propusimos romper este círculo vicioso. Concebimos un modelo donde la experiencia se gana trabajando en proyectos reales y remunerados, permitiendo a los jóvenes construir un portafolio sólido y a las empresas encontrar el talento emergente que necesitan.</p>
+                <p>Desde nuestra concepción, hemos imaginado cómo transformar la vida de miles de jóvenes, conectándolos con su primer empleo y contribuyendo al desarrollo de una fuerza laboral más dinámica y preparada en Perú. Nuestra misión es empoderar a cada joven para que transforme su futuro profesional hoy mismo, superando las barreras de la experiencia y abriendo las puertas a un futuro prometedor.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="plans" id="planes">
         <div class="container">
             <h2 class="section-title">¡Desbloquea tu Potencial! Elige el Plan que Impulsará tu Carrera</h2>
             <p class="section-subtitle">Acceso exclusivo a oportunidades, capacitación de élite y garantía de empleabilidad para tu éxito.</p>
             <div class="plans-grid">
                 <div class="plan-card">
-                    <div class="plan-header">
+                    <div>
                         <h3>Plan Básico</h3>
-                        <p class="price">S/0<span class="period">/Mes</span></p>
+                        <p class="price">S/0 /Mes</p>
                         <p class="ideal-for">Ideal para: Exploradores curiosos y primeros pasos.</p>
-                    </div>
-                    <div class="plan-features">
                         <ul>
-                            <li><i class="fas fa-check-circle"></i> Acceso a Proyectos de Iniciación: Primeras experiencias con pago semanal.</li>
-                            <li><i class="fas fa-check-circle"></i> Soporte Comunitario: Acceso a foros y recursos generales.</li>
-                            <li><i class="fas fa-check-circle"></i> Construcción de Portafolio Básico: Registra tus logros iniciales.</li>
-                            <li class="unavailable"><i class="fas fa-times-circle"></i> Certificaciones Profesionales</li>
-                            <li class="unavailable"><i class="fas fa-times-circle"></i> Conexiones VIP con Empresas</li>
-                            <li class="unavailable"><i class="fas fa-times-circle"></i> Garantía de Empleabilidad Exclusiva</li>
+                            <li>Acceso a Proyectos de Iniciación: Primeras experiencias con pago semanal.</li>
+                            <li>Soporte Comunitario: Acceso a foros y recursos generales.</li>
+                            <li>Construcción de Portafolio Básico: Registra tus logros iniciales.</li>
+                            <li class="negative">NO Certificaciones Profesionales</li>
+                            <li class="negative">NO Conexiones VIP con Empresas</li>
+                            <li class="negative">NO Garantía de Empleabilidad Exclusiva</li>
                         </ul>
                     </div>
-                    <div class="plan-footer">
-                        <a href="#" class="btn btn-secondary" onclick="openModal('modalJoven')">¡Empieza Gratis Hoy!</a>
-                    </div>
+                    <a href="#" class="btn btn-secondary">¡Empieza Gratis Hoy!</a>
                 </div>
-
-                <div class="plan-card featured">
-                    <div class="plan-header">
-                        <h3>Plan Pro</h3>
-                        <p class="price">S/49<span class="period">/Mes</span></p>
-                        <p class="ideal-for">Ideal para: Quienes buscan resultados rápidos y mentoría personalizada.</p>
-                    </div>
-                    <div class="plan-features">
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> Todo lo del Plan Básico +</li>
-                            <li><i class="fas fa-check-circle"></i> Proyectos Prioritarios y Mejor Pagados: Accede antes a las mejores oportunidades.</li>
-                            <li><i class="fas fa-check-circle"></i> Mentoría 1-a-1 Avanzada: Sesiones personalizadas para un crecimiento acelerado.</li>
-                            <li><i class="fas fa-check-circle"></i> Certificaciones en Habilidades de Alta Demanda: Valida tus conocimientos y destaca.</li>
-                            <li><i class="fas fa-check-circle"></i> Acceso a Red de Aliados Premium: Invitaciones a eventos y talleres exclusivos.</li>
-                            <li class="unavailable"><i class="fas fa-times-circle"></i> Garantía de Devolución Total</li>
-                        </ul>
-                    </div>
-                    <div class="plan-footer">
-                        <a href="#" class="btn btn-primary">¡Impulsa tu Carrera por S/49/Mes!</a>
-                    </div>
-                </div>
-
                 <div class="plan-card">
-                    <div class="plan-header">
-                        <h3>Plan Élite</h3>
-                        <p class="price">S/99<span class="period">/Mes</span></p>
-                        <p class="ideal-for">Ideal para: Ambiciosos que quieren el camino más rápido hacia su empleo soñado.</p>
-                    </div>
-                    <div class="plan-features">
+                    <div>
+                        <h3>Plan Pro (Más Popular)</h3>
+                        <p class="price">S/49 /Mes</p>
+                        <p class="ideal-for">Ideal para: Quienes buscan resultados rápidos y mentoría personalizada.</p>
                         <ul>
-                            <li><i class="fas fa-check-circle"></i> Todo lo del Plan Pro +</li>
-                            <li><i class="fas fa-check-circle"></i> Proyectos Exclusivos de Alto Impacto: Trabaja con empresas top en desafíos estratégicos.</li>
-                            <li><i class="fas fa-check-circle"></i> Sesiones Estratégicas con CEO's y Directivos: Conexión directa con líderes de la industria.</li>
-                            <li><i class="fas fa-check-circle"></i> Certificaciones Expertas y Reconocidas: Acredita tu maestría en áreas clave.</li>
-                            <li><i class="fas fa-check-circle"></i> Conexión Directa con Reclutadores VIP: Presentaciones personalizadas a ofertas de empleo.</li>
-                            <li><i class="fas fa-check-circle"></i> ¡Garantía de Empleabilidad en 90 Días! (Devolución total si no lo logras siguiendo el plan).</li>
+                            <li>Todo lo del Plan Básico +</li>
+                            <li>Proyectos Prioritarios y Mejor Pagados: Accede antes a las mejores oportunidades.</li>
+                            <li>Mentoría 1-a-1 Avanzada: Sesiones personalizadas para un crecimiento acelerado.</li>
+                            <li>Certificaciones en Habilidades de Alta Demanda: Valida tus conocimientos y destaca.</li>
+                            <li>Acceso a Red de Aliados Premium: Invitaciones a eventos y talleres exclusivos.</li>
+                            <li class="negative">NO Garantía de Devolución Total</li>
                         </ul>
                     </div>
-                    <div class="plan-footer">
-                        <a href="#" class="btn btn-secondary">¡Conquista tu Empleo Soñado por S/99/Mes!</a>
+                    <a href="#" class="btn btn-primary">¡Impulsa tu Carrera por S/49/Mes!</a>
+                </div>
+                <div class="plan-card">
+                    <div>
+                        <h3>Plan Élite</h3>
+                        <p class="price">S/99 /Mes</p>
+                        <p class="ideal-for">Ideal para: Ambiciosos que quieren el camino más rápido hacia su empleo soñado.</p>
+                        <ul>
+                            <li>Todo lo del Plan Pro +</li>
+                            <li>Proyectos Exclusivos de Alto Impacto: Trabaja con empresas top en desafíos estratégicos.</li>
+                            <li>Sesiones Estratégicas con CEO's y Directivos: Conexión directa con líderes de la industria.</li>
+                            <li>Certificaciones Expertas y Reconocidas: Acredita tu maestría en áreas clave.</li>
+                            <li>Conexión Directa con Reclutadores VIP: Presentaciones personalizadas a ofertas de empleo.</li>
+                            <li>¡Garantía de Empleabilidad en 90 Días! (Devolución total si no lo logras siguiendo el plan).</li>
+                        </ul>
                     </div>
+                    <a href="#" class="btn btn-primary">¡Conquista tu Empleo Soñado por S/99/Mes!</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-col">
-                <h3>Tu Primera Chamba</h3>
-                <p>Conectando el talento joven con el éxito profesional.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tu Primera Chamba</h3>
+                    <p>Transformamos jóvenes sin experiencia en profesionales empleables a través de proyectos reales y mentoring personalizado.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Para Jóvenes</h3>
+                    <ul>
+                        <li><a href="#">Registro Gratuito</a></li>
+                        <li><a href="#">Proyectos Disponibles</a></li>
+                        <li><a href="#testimonios">Historias de Éxito</a></li>
+                        <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Para Empresas</h3>
+                    <ul>
+                        <li><a href="#">Contratar Talento</a></li>
+                        <li><a href="#">Publicar Proyecto</a></li>
+                        <li><a href="#">Casos de Éxito</a></li>
+                        <li><a href="#planes">Planes Empresariales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>📧 hola@tuprimerachamba.pe</li>
+                        <li>📱 +51 999 888 777</li>
+                        <li>📍 Lima, Perú</li>
+                        <li>⏰ Lun-Vie 9AM-7PM</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-col">
-                <h3>Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#como-funciona">Cómo Funciona</a></li>
-                    <li><a href="#beneficios">Beneficios</a></li>
-                    <li><a href="#preguntas-frecuentes">FAQ</a></li>
-                    <li><a href="#planes">Planes</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tu Primera Chamba. Todos los derechos reservados. | Transformando futuros profesionales en Perú.</p>
             </div>
-            <div class="footer-col">
-                <h3>Contacto</h3>
-                <p>Email: info@tuprimerachamba.com</p>
-                <p>Teléfono: +51 987 654 321</p>
-                <p>Dirección: Lima, Perú</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Tu Primera Chamba. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <div id="modalJoven" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalJoven')">&times;</span>
+            <h2>🚀 Inicia tu Transformación Profesional</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required placeholder="+51 999 888 777">
+                </div>
+                <div class="form-group">
+                    <label for="area">Área de Interés:</label>
+                    <select id="area" name="area" required>
+                        <option value="">Selecciona un área</option>
+                        <option value="tecnologia">Tecnología y Programación</option>
+                        <option value="marketing">Marketing Digital</option>
+                        <option value="diseno">Diseño Gráfico</option>
+                        <option value="ventas">Ventas y Atención al Cliente</option>
+                        <option value="administracion">Administración</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="experiencia">Nivel de Experiencia:</label>
+                    <select id="experiencia" name="experiencia" required>
+                        <option value="">Selecciona tu nivel</option>
+                        <option value="ninguna">Sin experiencia</option>
+                        <option value="basica">Conocimientos básicos</option>
+                        <option value="intermedia">Nivel intermedio</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    Empezar Mi Transformación GRATIS
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalEmpresa" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalEmpresa')">&times;</span>
+            <h2>💼 Encuentra Talento Joven</h2>
+            <form>
+                <div class="form-group">
+                    <label for="empresa">Nombre de la Empresa:</label>
+                    <input type="text" id="empresa" name="empresa" required placeholder="Nombre de tu empresa">
+                </div>
+                <div class="form-group">
+                    <label for="contacto">Persona de Contacto:</label>
+                    <input type="text" id="contacto" name="contacto" required placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="emailEmpresa">Email Corporativo:</label>
+                    <input type="email" id="emailEmpresa" name="emailEmpresa" required placeholder="contacto@empresa.com">
+                </div>
+                <div class="form-group">
+                    <label for="telefonoEmpresa">Teléfono:</label>
+                    <input type="tel" id="telefonoEmpresa" name="telefonoEmpresa" required placeholder="+51 999 888 777">
+                </div>
+                <div class="form-group">
+                    <label for="necesidad">Tipo de Talento que Buscas:</label>
+                    <select id="necesidad" name="necesidad" required>
+                        <option value="">Selecciona el perfil</option>
+                        <option value="desarrollador">Desarrolladores</option>
+                        <option value="marketing">Marketing Digital</option>
+                        <option value="diseno">Diseñadores</option>
+                        <option value="ventas">Ventas</option>
+                        <option value="administracion">Administración</option>
+                        <option value="multiple">Múltiples perfiles</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="proyecto">Describe tu Proyecto:</label>
+                    <textarea id="proyecto" name="proyecto" rows="4" placeholder="Cuéntanos qué tipo de proyecto tienes y qué habilidades necesitas"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    Conectar con Talento Joven
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <button class="fab" onclick="openModal('modalJoven')" title="¡Empieza Ahora!">
+        🚀
+    </button>
+
     <script>
-        // Funcionalidad de modales (ejemplo, asegúrate de tener el tuyo)
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.remove('active');
+        }
+
+        // Modal Functions
         function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
-        // Cerrar modal al hacer clic fuera
+        // Close modal when clicking outside
         window.onclick = function(event) {
             const modals = document.querySelectorAll('.modal');
             modals.forEach(modal => {
                 if (event.target == modal) {
                     modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
                 }
             });
         }
 
-        // Animaciones al hacer scroll (ejemplo, asegúrate de tener el tuyo)
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-item h3');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.textContent.replace(/[^\d.]/g, ''));
+                const isRating = counter.textContent.includes('⭐');
+                const increment = target / 50;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        let displayValue;
+                        if (isRating) {
+                            displayValue = current.toFixed(1);
+                        } else {
+                            displayValue = Math.ceil(current).toLocaleString();
+                        }
+                        const suffix = counter.textContent.replace(/[\d,.]/g, '');
+                        counter.textContent = displayValue + suffix;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = counter.textContent;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible'); // Opcional: para reanimar al scrollear de nuevo
+                    if (entry.target.classList.contains('stats')) {
+                        animateCounters();
+                    }
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, { threshold: 0.1 }); // Se activa cuando el 10% de la sección es visible
+        }, observerOptions);
 
+        // Observe sections for animations
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => {
@@ -928,7 +1801,7 @@
             });
         });
 
-        // Form submission handlers (ejemplo, asegúrate de tener el tuyo)
+        // Form submission handlers
         document.addEventListener('DOMContentLoaded', () => {
             const forms = document.querySelectorAll('form');
             forms.forEach(form => {
@@ -942,7 +1815,7 @@
             });
         });
 
-        // Add scroll effect to header (ejemplo, asegúrate de tener el tuyo)
+        // Add scroll effect to header
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
@@ -952,33 +1825,11 @@
             }
         });
 
-        // JavaScript para el FAQ Accordion (NUEVO)
-        document.addEventListener('DOMContentLoaded', () => {
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const accordionItem = header.closest('.accordion-item');
-                    const isActive = accordionItem.classList.contains('active');
-
-                    // Cerrar todos los demás acordeones abiertos
-                    document.querySelectorAll('.accordion-item.active').forEach(item => {
-                        if (item !== accordionItem) {
-                            item.classList.remove('active');
-                            item.querySelector('.accordion-content').style.maxHeight = null;
-                        }
-                    });
-
-                    // Abrir o cerrar el acordeón clicado
-                    accordionItem.classList.toggle('active');
-                    const accordionContent = accordionItem.querySelector('.accordion-content');
-                    if (accordionItem.classList.contains('active')) {
-                        accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-                    } else {
-                        accordionContent.style.maxHeight = null;
-                    }
-                });
-            });
-        });
+        // FAQ Toggle functionality (added for interactivity, though simple static for now)
+        function toggleFAQ(element) {
+            const faqItem = element.closest('.faq-item');
+            faqItem.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
